@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <script src="vega_lite_map.js"></script>
+    <script src="vega_lite_pie.js"></script>
+    <script src="vega_lite_bar.js"></script>    
+    <script src="vega_lite_line.js"></script>
+    <script src="vega_lite_bubble.js"></script>
+    <title> Vega-lite report </title>
+    
+</head>
+
+<body>
+    <h1> Oil consumption report</h1>
+    <p class="paragraph"> 
+        Crude oil is a vital energy source that powers the world economical 
+        system ever since the industrial revolution.
+        The scope of this visualisation is to represent relevant information 
+        on world consumption map, overview of usages, reserves, production and 
+        external source energy reliant of the major economies
+    </p> 
+    <div id="map_chart">       
+    </div>
+    <div class ="container">
+        <p class="para1">
+        The map visualise the consumption level, the amount of reserves and population of the major countries in each continent.
+        In 2020, <span class="bold"> most major consumer of oil is United States, China with over a billion cubic metre and 720 million cubic metre respectively. </span>
+        </p>
+        <p class="para2">
+        The second group in terms of usage includes <span class = "bold">India, Japan, Germany, South Korea, Russia and Brazil which consumes around 150 to 200 million cubic metre in 2020. </span>
+        The smallest group in terms of usage all use less than 100 million cubic metre yearly.
+        High figure was due to America being the worlds largest economy with huge emphasis on oil usage such as road transportation, aviation and trades. Whereas China is the largest populated nation knowed to be the world's factory with large industrial and manufacturing usage of crude oil. 
+        </p>
+    </div>
+    </p>
+    <div class="container">
+        <div id="pie_chart" class="col1"></div>
+        <div id="bar_chart" class="col2"></div>
+    </div>
+    <div class="container">
+        <p class="para1" > 
+            The pie chart further emphasize the large usage of US and China.
+            <span class="bold"> Proportionally, they used up 33% and 23% respectively of the countries consumption.</span>
+        </p>
+        <p class="para2"> 
+            The figure on consumption per capita showed suprising results. 
+            Even though the United States still lead in both consumption and 
+            consumption per capita. <span class = "bold">Consumption per capita in countries such as South Korea and Australia are 
+            suprisingly high.</span>
+            This could suggest that in order to reduce worldwide carbon footprint,
+            countries such as the US, Australia should do more to reduce their carbon energy reliant.
+        </p>
+    </div>
+    <div class="container">
+        <div id="line_chart" class="col-1"></div>
+        <p class="para2" >
+            The line chart showed 5 years oil production figures for countries within the list. 
+            United States and Russia are within different categories compare to others since they 
+            own a huge amount of natural resources with huge Oil and Gas Company such as Exxon Mobil, 
+            Gazprom etc. Russia was always known to be a resource rich nation. <span class="bold">The rise of United States'
+            oil production in 2018 come from the new fracking technology to harvest oil that the US unveiled 
+            to the world in 2014.</span> Ever since then, oil production in the US rose sharply to surpass Russia. 
+            From 2019 to 2020, major producer such as Russia and the US scaled down on their 
+            production due to Covid.
+        </p>
+    </div>
+    <div id="bubble_chart"></div>
+    <div class = "container">
+        <p class="para1"> 
+        The bubble plot showed the relationship between a country's oil reserve and its dependent on external energy source. 
+        It showed that for <span class = "bold">countries with high reserves, their domestic production would be strong to utilize their resources and ensure their own energy security.</span>
+        Most of these major countries are net importers of crude oil except for Russia and Brazil due to their high crude oil resource and low consumption per capita. 
+        </p>
+        <p class = "para2">
+        Suprisingly, <span class ="bold">the US as one of the resource rich nation
+        did have a positive net import figures, this is due to the excesssively high consumption per capita that domestic production would struggle to meet demand</span>. 
+        India and China even though having high total consumption, their status as the 2 most populated nation drove their import per capita figures down.
+        <span class = "bold">Other countries in the list are net importers of around 0.5 to 1.5 cubic metre per capita, 
+        in an extreme case, South Korea with little to no reserve did have a woefully high figures of importing 3 cubic metre of oil per person.</span>
+        </p>
+    </div> 
+</body>
+
+</html>
+
+

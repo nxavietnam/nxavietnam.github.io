@@ -1,0 +1,78 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "title": "Relationship between oil reserves and net imports",
+    "data": {
+    "url": "https://raw.githubusercontent.com/nxavietnam/nxavietnam.github.io/main/Bubble%20plot%20data.csv"
+    },
+    "params": [
+        {
+            "name": "Reserve_range_selection",
+            "value": 5,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 100,
+                "step": 5,
+                "name": "Maximum reserves: "
+            }
+        },
+        {
+            "name": "Year_selection",
+            "bind":{
+                "input": "select",
+                "options": [
+                    null,
+                    2016,
+                    2017,
+                    2018,
+                    2019,
+                    2020
+                ],
+                "labels": [
+                    "Show All",
+                    "2016",
+                    "2017",
+                    "2018",
+                    "2019",
+                    "2020"
+                ],
+                "name": "Year selection"
+            }
+        }
+    ],
+    "transform": [
+        {"filter": "Year_selection == null || datum.Year == Year_selection"},
+        {"filter": "datum.Reserves < Reserve_range_selection"}
+    ],
+    "mark": "circle",
+    "encoding": {
+        "x": {
+            "field": "NetImports",
+            "type": "quantitative",
+            "title": "Net import per capita"
+        },
+        "y": {
+            "field": "Reserves",
+            "type": "quantitative",
+            "title": "Reserve per capita"
+        },
+        "color": {
+            "field": "Continent",
+            "type": "nominal"
+        },
+        "size": {
+            "field": "Population",
+            "type": "quantitative"
+        },
+        "tooltip":[
+            {"field": "Country", "type": "nominal"},
+            {"field": "Continent", "type": "nominal"},
+            {"field": "Reserves", "type": "quantitative", "format": ",","title": "Reserves per capita"},
+            {"field": "NetImports", "type": "quantitative", "format": ",","title": "Net imports per capita"},
+            {"field": "Year", "type": "quantitative"},
+            {"field": "Population", "type": "quantitative"}
+        ]
+    }
+}

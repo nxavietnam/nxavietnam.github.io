@@ -1,0 +1,41 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Ranking oil consumption per capita by country",
+    "data": {"url": "https://raw.githubusercontent.com/nxavietnam/nxavietnam.github.io/main/Bar%20chart%20consumption.csv"},
+    "mark": "bar",
+    "transform": [
+      {
+        "aggregate": [{"op": "mean", "field": "Consumption", "as": "consumption"}],
+        "groupby": ["Country"]
+      },
+      {
+        "window": [{"op": "row_number", "as": "rank"}],
+        "sort": [{ "field": "consumption", "order": "descending" }]
+      },
+      {
+        "calculate": "datum.rank < 20 ? datum.Country : 'All Others'", "as": "ranked_country"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "aggregate": "mean",
+        "field": "consumption",
+        "type": "quantitative",
+        "title": null
+      },
+      "y": {
+        "sort": {"op": "mean", "field": "consumption", "order": "descending"},
+        "field": "ranked_country",
+        "type": "ordinal",
+        "title": null
+      },
+      "color":{
+        "field": "Country",
+        "type": "nominal"
+      },
+      "tooltip":[
+        {"field":"Country", "type": "nominal"},
+        {"field": "consumption", "type": "quantitative","format":","}
+      ]
+    }
+  }
